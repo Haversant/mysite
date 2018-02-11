@@ -1,0 +1,20 @@
+
+
+
+RewriteEngine on
+RewriteBase /
+RewriteRule ^.htaccess$ - [F]
+
+RewriteCond %{HTTP_HOST} ^mysite
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)\ HTTP/
+RewriteRule ^index\.(html|php)$ http://mysite [R=301,L]
+
+
+
+
+RewriteRule ^index\.(html|php)?rout=([a-z]+)$ $1 [R=301,L]
+
+RewriteRule ^index\.(html|php)?rout=([a-z]+)&id=([0-9]+)$ /$1/$2/ [R=301,L]
+
+RewriteRule ^([a-z]+)/$ ?rout=$1 [L]
+RewriteRule ^([a-z]+)/([0-9]+)/$ ?rout=$1&id=$2 [L]
