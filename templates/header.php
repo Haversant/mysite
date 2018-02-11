@@ -48,13 +48,14 @@ echo '</pre>';
 			$thisurl = parse_url($_SERVER["REQUEST_URI"]);
 
 			foreach($menu as $m){
+				if($m['enable']){
+					$h=parse_url($m['href']);
+					$h=preg_replace('(\.\./)', '/', $h);
+					if($h['query']==$thisurl['query']&&$h['path']==$thisurl['path']){$tag='span';$href='';}
+					else{$tag='a';$href='href="'.$m['href'].'"';}
 
-				$h=parse_url($m['href']);
-				$h=preg_replace('(\.\./)', '/', $h);
-				if($h['query']==$thisurl['query']&&$h['path']==$thisurl['path']){$tag='span';$href='';}
-				else{$tag='a';$href='href="'.$m['href'].'"';}
-
-				echo '<'.$tag.' class="'.$class.'" '.$href.'>'.$m['name'].'</'.$tag.'>';
+					echo '<'.$tag.' class="'.$class.'" '.$href.'>'.$m['name'].'</'.$tag.'>';
+				}
 			}
 		?>
 	</nav>	

@@ -1,6 +1,6 @@
 <?php include("config.php"); ?>
 
-<?php include("/templates/header.php"); ?>
+<?php include("./templates/header.php"); ?>
 
 <?php echo $_GET['rout'].' and '.$_GET['id']; ?>
 
@@ -21,5 +21,5 @@ http://mysite/index.php?rout=aboutme
 ?>
 	
 	
-<?php include("/templates/footer.php"); ?>
+<?php include("./templates/footer.php"); ?>
 
