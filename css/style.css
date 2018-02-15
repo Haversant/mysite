@@ -1,10 +1,11 @@
 
 
-document,html,body,header,.container{
+html,body,header,.container{
 	width:100%;
 	text-align: center;
 	padding:0;
 	margin:0;
+	transition: 2s;
 }
 
 
@@ -74,7 +75,7 @@ header{
 
 
 .container{
-	width:85%;         height:2000px;
+	width:96%;         height:2000px;
 	margin:auto;
 	padding:10px 10px;
 	text-align:left;
@@ -87,4 +88,63 @@ footer{
 	padding:10px 10px;
 	text-align:left;
 	background-color:#222;
+}
+
+
+
+.drowa,.colim,.colim img{
+	display:block;box-sizing:border-box;
+	width:100%;height:auto;
+	padding:0;margin:auto;
+	text-align: center;
+
+	border:1px solid #666;
+}
+
+.colim{
+	display:inline-block;
+	width:20vw;
+	min-width:150px;
+	margin:15px 1%;
+	vertical-align:top;
+}
+.colim img{
+	
+}
+
+
+.vi_bg{
+	position:fixed;
+	display:none;
+	    top: 0;
+	width:100vw;
+	height:100vh;
+	background-color:rgba(0,0,0,0.8);
+	z-index: 10;
+}
+.vi_div{
+	position:fixed;
+	display:none;
+	width:90vw;
+	height:90vh;
+	top:4vh;left:4vw;
+	text-align: center;
+	z-index: 11;
+transition: 2s;
+-moz-transition: 2s;
+-webkit-transition: 2s;
+
+}
+.l4vw{
+	left:4vw;
+}
+.vi_pic{
+	display:block;
+	max-width:100%;
+	max-height:100%;
+	margin:auto;
+	z-index: 20;
+
+			
+	box-shadow: 1px 1px 5px #000, 10px 10px 50px #000;
 }
