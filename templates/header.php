@@ -12,9 +12,9 @@
 	<meta name="viewport" content="width=device-width" />
 	
 	
-	<link type="text/css" rel="stylesheet" href="/css/normalize.css" media="all" />
+	<link rel="stylesheet" href="/css/normalize.css" />
 	<!-- <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="all" /> -->
-	<link type="text/css" rel="stylesheet" href="/css/style.css" media="all" />
+	<link rel="stylesheet" href="/css/style.css" />
 	
 </head>
 <!-- ==== B O D Y ==== -->
@@ -22,7 +22,7 @@
 <!-- H E A D E R -->
 
 <?php
-echo '<br/>DOCUMENT_ROOT = '.$_SERVER['DOCUMENT_ROOT'];
+/*echo '<br/>DOCUMENT_ROOT = '.$_SERVER['DOCUMENT_ROOT'];
 echo '<br/>HTTP_HOST = '.$_SERVER['HTTP_HOST'];
 echo '<br/>SERVER_NAME = '.$_SERVER['SERVER_NAME'];
 echo '<br/>FILE = '.__FILE__;
@@ -34,7 +34,7 @@ echo '<br/>QUERY_STRING = '.$_SERVER['QUERY_STRING'];
 echo '<pre>';
 var_dump($url2); 
 var_dump($_GET['rout']); 
-echo '</pre>';
+echo '</pre>';*/
 ?>
 
 
@@ -48,13 +48,14 @@ echo '</pre>';
 			$thisurl = parse_url($_SERVER["REQUEST_URI"]);
 
 			foreach($menu as $m){
+				if($m['enable']){
+					$h=parse_url($m['href']);
+					$h=preg_replace('(\.\./)', '/', $h);
+					if($h['query']==$thisurl['query']&&$h['path']==$thisurl['path']){$tag='span';$href='';}
+					else{$tag='a';$href='href="'.$m['href'].'"';}
 
-				$h=parse_url($m['href']);
-				$h=preg_replace('(\.\./)', '/', $h);
-				if($h['query']==$thisurl['query']&&$h['path']==$thisurl['path']){$tag='span';$href='';}
-				else{$tag='a';$href='href="'.$m['href'].'"';}
-
-				echo '<'.$tag.' class="'.$class.'" '.$href.'>'.$m['name'].'</'.$tag.'>';
+					echo '<'.$tag.' class="'.$class.'" '.$href.'>'.$m['name'].'</'.$tag.'>';
+				}
 			}
 		?>
 	</nav>	

@@ -5,24 +5,29 @@ html,body,header,.container{
 	text-align: center;
 	padding:0;
 	margin:0;
-	transition: 2s;
+transition: .5s;
+-moz-transition: .5s;
+-webkit-transition: .5s;
 }
 
-
+						/* ========== HEADER ============ */
 
 header{
 	margin-bottom:20px;
 }
 .top_space{
-	height: 90px;
+	/*height: 90px;*/height: 50px;
 }
 	.top_top{
 		width:100%;
-		height:30px;
+		/*height:30px;*/height:0;
 		padding:0 60px;
 		text-align:left;
 		background-color:#555;
 	}
+
+					/* ================= TOP MENU ================== */
+
 .top_nav{
 	width:85%;
 	height:40px;
@@ -51,12 +56,8 @@ header{
 		color:#000;
 	}
 		.top_nav a.tlink:hover{
-			
-			color:#000;
-			
+			color:#000;	
 		}
-
-
 			@media screen and (min-width: 1350px){
 				.top_nav{
 					width:1250px;
@@ -74,13 +75,16 @@ header{
 			}
 
 
+					/* ================= CONTENT ================== */
+
 .container{
-	width:96%;         height:2000px;
+	width:96%;            height:2000px;
 	margin:auto;
 	padding:10px 10px;
 	text-align:left;
 }
 
+					/* ================= FOOTER ================== */
 
 footer{
 	width:100%;         height:60px;
@@ -90,7 +94,50 @@ footer{
 	background-color:#222;
 }
 
+					/* ================= ARTICLES MENU ================== */
+.art_menu{
+	display:block;
+	box-sizing: border-box;
+	text-align:center;
+	position:fixed;
+	right:-190px;
+	width:auto;height:auto;
+	max-width:300px;
+			transition: .5s;
+			-moz-transition: .5s;
+			-webkit-transition: .5s;
+}
+.art_menu:hover{
+	right:0;
+}
 
+	.alink{
+		display:block;
+		box-sizing: border-box;
+		text-align:center;
+		width:200px;
+		height:40px;
+		margin:10px;
+		padding-top:6px;
+		border-radius:3px;
+		border:1px solid #48f;
+		color:#000;
+		text-decoration:none;
+		font-size:20px;
+			transition: .5s;
+			-moz-transition: .5s;
+			-webkit-transition: .5s;
+	}
+	.alink:hover,.alink:active,.alink:focus,span.alink{
+		background-color:#def;
+		border:1px solid #48f;
+		color:#000;
+		text-decoration:none;
+		font-size:20px;
+	}
+
+
+									/* ==== GALLERY ====== */
 
 .drowa,.colim,.colim img{
 	display:block;box-sizing:border-box;
@@ -98,7 +145,7 @@ footer{
 	padding:0;margin:auto;
 	text-align: center;
 
-	border:1px solid #666;
+	/*border:1px solid #666;*/
 }
 
 .colim{
@@ -106,23 +153,30 @@ footer{
 	width:20vw;
 	min-width:150px;
 	margin:15px 1%;
-	vertical-align:top;
+	vertical-align:middle;
 }
 .colim img{
-	
+	/*border:1px solid #000;*/
+	box-shadow: 1px 1px 30px #339;
 }
 
 
-.vi_bg{
+
+							/* ========== POPUP GALLERY =========== */
+
+div.vi_bg{
 	position:fixed;
 	display:none;
-	    top: 0;
+	top: 0;
 	width:100vw;
 	height:100vh;
-	background-color:rgba(0,0,0,0.8);
+	background-color:rgba(0,0,0,0.9);
 	z-index: 10;
+transition: .5s;
+-moz-transition: .5s;
+-webkit-transition: .5s;
 }
-.vi_div{
+div.vi_div{
 	position:fixed;
 	display:none;
 	width:90vw;
@@ -130,21 +184,44 @@ footer{
 	top:4vh;left:4vw;
 	text-align: center;
 	z-index: 11;
-transition: 2s;
--moz-transition: 2s;
--webkit-transition: 2s;
 
+transition: .5s;
+-moz-transition: .5s;
+-webkit-transition: .5s;
+background-repeat: no-repeat;
+background-size:contain;
+background-position: center;
 }
-.l4vw{
-	left:4vw;
-}
+
 .vi_pic{
 	display:block;
-	max-width:100%;
-	max-height:100%;
+	
+	height:100%;
 	margin:auto;
 	z-index: 20;
+	box-shadow: 1px 1px 5px #000, 10px 10px 50px #003;
+}
 
-			
-	box-shadow: 1px 1px 5px #000, 10px 10px 50px #000;
+.vi_bp,.vi_bn{
+	position:fixed;
+	display:block;
+	top:0;
+	text-align: center;
+	width:10vw;
+	height:100vh;
+	background-color:rgba(0,0,0,0.1);
+	z-index: 30;
+
+transition: .5s;
+-moz-transition: .5s;
+-webkit-transition: .5s;
+}
+.vi_bp:hover,.vi_bn:hover{
+	background-color:rgba(255,255,255,0.1);
+}
+.vi_bp{
+	left:0;
+}
+.vi_bn{
+	right:0;
 }

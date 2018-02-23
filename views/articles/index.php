@@ -1,6 +1,5 @@
-<?php 
 
 
-?>
+<center><h1><?php echo $title ?></h1></center>
 
-<h1>СТАТЬИ</h1>
+<?php include('./templates/articles_menu.php') ?>

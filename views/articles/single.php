@@ -1,12 +1,6 @@
-<?php 
-	if(file_exists($model='./models/'.$_GET['rout'].'Model.php')){
-		include($model);
-	}else{
-		echo 'none';
-	}
 
-	$art=$articles[$_GET['id']];
 
-?>
+<center><h1><?php echo $title ?></h1></center>
 
-<h1>СТАТЬЯ <?php echo $art['title'];?></h1>
+<?php include('./templates/articles_menu.php') ?>
+

@@ -1,25 +1,48 @@
-<?php include("config.php"); ?>
-
-<?php include("/templates/header.php"); ?>
-
-<?php echo $_GET['rout'].' and '.$_GET['id']; ?>
 
 
+<?php include("config.php"); 
 
-<?php
+
+/* pages */
+if(file_exists($page='./models/pagesModel.php')){
+		include($page);
+		$href = $_GET['rout']?'/'.$_GET['rout'].'/':'/';
+		$href .= $_GET['view']?$_GET['view'].'/':is_numeric($_GET['id'])?'single/':'';
+		$pages = Pages::db();
+		$page = Pages::db($href);
+	}
+/* menus */
+
+/* model */
+if($_GET['rout']){
+	if(file_exists($model='./models/'.$_GET['rout'].'Model.php')){
+		include($model);
+		$results = Articles::db();
+	}
+	if(isset($_GET['id'])&&$model){
+		$result = Articles::db((int)$_GET['id']);
+	}
+}
+
+/* varibale */
+$title = ($result['title'])?:($page['title'])?:'oups';
+$titleTag = ($result['titleTag'])?:'';
+
+/*  HEADER  */
+include("./templates/header.php");
+
+/*   BEGIN CONTENT   */
 	if($_GET['rout']){
-		if(file_exists($page='./views/'.$_GET['rout'].'/'.($_GET['view']?$_GET['view']:is_numeric($_GET['id'])?'single':'index').'.php')){
-			include($page);
+		if(file_exists($view='./views/'.$_GET['rout'].'/'.($_GET['view']?$_GET['view']:is_numeric($_GET['id'])?'single':'index').'.php')){
+			include($view);
 		}else{
-			echo 'none';
+			echo "404";
 		}
 	}else{
 		include('./views/home/index.php');
 	}
+/*   END CONTENT   */
 
-http://mysite/index.php?rout=aboutme
-?>
-	
-	
-<?php include("/templates/footer.php"); ?>
+/*  FOOTER  */
+include("./templates/footer.php"); ?>
 
