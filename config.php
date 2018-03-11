@@ -11,7 +11,9 @@ $menu=[
 	['id'=>7,'name'=>'/index.php?rout=articles&title=title_by-title',
 		'href'=>'/index.php?rout=articles&title=title_by-title','enable'=>0],
 	['id'=>7,'name'=>'галерея',
-		'href'=>'/gallery/','enable'=>1]
+		'href'=>'/gallery/','enable'=>1],
+	['id'=>8,'name'=>'ajax',
+		'href'=>'/ajax/','enable'=>1]
 ]
 
 
