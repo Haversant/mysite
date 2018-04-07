@@ -17,7 +17,9 @@ if(file_exists($page='./models/pagesModel.php')){
 if($_GET['rout']){
 	if(file_exists($model='./models/'.$_GET['rout'].'Model.php')){
 		include($model);
-		$results = Articles::db();
+		if(class_exists(Articles)){//временно
+			$results = Articles::db();
+		}
 	}
 	if(isset($_GET['id'])&&$model){
 		$result = Articles::db((int)$_GET['id']);
@@ -27,6 +29,10 @@ if($_GET['rout']){
 /* varibale */
 $title = ($result['title'])?:($page['title'])?:'oups';
 $titleTag = ($result['titleTag'])?:'';
+
+
+
+/*  FRONT BEGIN  */
 
 /*  HEADER  */
 include("./templates/header.php");
